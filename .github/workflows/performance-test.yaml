@@ -20,10 +20,13 @@ jobs:
           tar -xzvf apache-jmeter-5.6.3.tgz
           sudo mv apache-jmeter-5.6.3 /opt/jmeter
 
+      - name: Criar pasta de relatórios
+        run: mkdir -p ./reports/html
+
       - name: Executar teste JMeter
         run: |
           /opt/jmeter/bin/jmeter -n \
-            -t ./testes/stress-test.jmx \
+            -t ./testes/teste.jmx \
             -l ./reports/resultados.jtl \
             -e -o ./reports/html
 
